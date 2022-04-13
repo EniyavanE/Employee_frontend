@@ -1,0 +1,34 @@
+.form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    padding: 20px 60px;
+    /* justify-content: center; */
+}
+
+.form > .input-container > label {
+    padding-right: 20px;
+}
+.form > .input-container{
+    margin: 20px 0;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+.top{
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 70px;
+    
+}
+.form .btn{
+    align-self: center;
+}
+@media screen and (max-width: 920px) {
+    .form > .input-container{
+        width: unset;
+    }
+}
+
