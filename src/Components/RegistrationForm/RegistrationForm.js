@@ -1,8 +1,8 @@
 import React from "react";
 import "./RegistrationForm.css";
-import { FaRegCalendarAlt } from 'react-icons/fa';
 import { useState } from "react";
 import axios from "axios";
+import FileBase64 from 'react-file-base64';
 const RegistrationForm = ({getdata}) => {
     const [name, setName] = useState("");
     const [pic, setPic] = useState("");
@@ -29,6 +29,9 @@ const RegistrationForm = ({getdata}) => {
         setName("");
         setNum("");
         setEmail("");
+        setDob("");
+        
+        
         await getdata();
     }
 
@@ -45,7 +48,10 @@ const RegistrationForm = ({getdata}) => {
                     </div>
                     <div className="input-container form__profilepic">
                         <label htmlFor="profilepic_input">Profile Pic</label>
-                        <input  type="file" name="profilepic_input" value={pic} onChange={e => setPic(e.target.value)} />
+                        <FileBase64
+        multiple={ false }
+        onDone={(base64)=>setPic(base64.base64) } />
+                    
                     </div>
                     <div className="input-container form__mobile">
                         <label htmlFor="mobile_input">Mobile</label>
@@ -58,7 +64,10 @@ const RegistrationForm = ({getdata}) => {
                     </div>
                     <div className="input-container form__jobtype">
                         <label htmlFor="jobtype_input">Job Type</label>
-                        <select name="jobtype_input" value={jobtype} onChange={e => setJobtype(e.value)} >
+                        <select name="jobtype_input" value={jobtype} onChange={e => {
+                            setJobtype(e.target.value)
+
+                            }} >
                             <option>FT</option>
                             <option>PT</option>
                             <option>Consultant</option>
@@ -70,12 +79,10 @@ const RegistrationForm = ({getdata}) => {
                     </div>
                     <div className="input-container form__location">
                         <label htmlFor="location_input">Pref.Location</label>
-                        <select name="location" value={location} onChange={e=>setLocation(e=>e.value)}>
+                        <select name="location" value={location} onChange={e=>{console.log(e);setLocation(e=>e?.target?.value)}}>
                             <option>Chennai</option>
                             <option>Bangalore</option>
-                            <option>Chennai</option>
-                            <option>Chennai</option>
-                            <option>Chennai</option>
+
                         </select>
                     </div>
                     <input required type="submit" className="btn" value={"+ Add/Update"} />

@@ -1,9 +1,12 @@
 // import { TableContainer, TableHead } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./UsersTable.css";
+import {ToastsContainer, ToastsStore} from 'react-toasts';
+
 import DataTable , { createTheme } from 'react-data-table-component';
-import { getAccordionDetailsUtilityClass } from "@mui/material";
+import EditModal from "../Edit/EditModal";
+// import { getAccordionDetailsUtilityClass, imageListClasses } from "@mui/material";
 // import Table from '@mui/material/Table';
 // import TableBody from '@mui/material/TableBody';
 // import TableCell from '@mui/material/TableCell';
@@ -19,11 +22,19 @@ createTheme('solarized', {
 }, "light")
 
 const UsersTable = ({ data,getdata }) => {
-
+    
   const columns = [
     {
       name: 'Name',
       selector: row => row.name,
+      sortable: true,
+    },{
+      name: 'Photo',
+      selector: row => {
+        return(
+          <img src={row.pic} width="100"/>
+        );
+      },
       sortable: true,
     },
     {
@@ -54,14 +65,19 @@ const UsersTable = ({ data,getdata }) => {
     {
       name: 'Action',
       selector: row => {
+        
         return (
           <>
+           
+           <EditModal row={row} getdata={getdata}/>
           <button onClick={async ()=>{
             const deleteRespondse = await axios.delete(`http://localhost:5000/data/${row._id}`);
             console.log(deleteRespondse);
             await getdata();
+            ToastsStore.success("Deleted successfully");
           }}>delete</button>
           
+          <ToastsContainer store={ToastsStore}/>
           </>
         )
       },
