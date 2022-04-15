@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.ReactModal__Content{
+  height:300px;
+  width: 400px;
+  position: unset !important;
+
+}
+.ReactModal__Overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

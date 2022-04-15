@@ -1,16 +1,17 @@
+
 import React from "react";
 import "./RegistrationForm.css";
 import { useState } from "react";
 import axios from "axios";
 import FileBase64 from 'react-file-base64';
-const RegistrationForm = ({getdata}) => {
+const RegistrationForm = ({ getdata }) => {
     const [name, setName] = useState("");
     const [pic, setPic] = useState("");
     const [num, setNum] = useState("");
     const [email, setEmail] = useState("");
     const [dob, setDob] = useState("");
-    const [jobtype, setJobtype] = useState("");
-    const[location,setLocation]=useState("");
+    const [jobtype, setJobtype] = useState("pt");
+    const [location, setLocation] = useState("chennai");
     const submit = async (e) => {
         e.preventDefault();
         const info = {
@@ -20,23 +21,23 @@ const RegistrationForm = ({getdata}) => {
             Dob: dob,
             Pic: pic,
             Jobtype: jobtype,
-            Location:location
+            Location: location
         };
         console.log(info);
-       await axios.post("http://localhost:5000/data",{
-             ...info
+        await axios.post("http://localhost:5000/data", {
+            ...info
         });
         setName("");
         setNum("");
         setEmail("");
         setDob("");
-        
-        
+
+
         await getdata();
     }
 
 
-    
+
     return (
         <>
             <div className="top">
@@ -49,9 +50,9 @@ const RegistrationForm = ({getdata}) => {
                     <div className="input-container form__profilepic">
                         <label htmlFor="profilepic_input">Profile Pic</label>
                         <FileBase64
-        multiple={ false }
-        onDone={(base64)=>setPic(base64.base64) } />
-                    
+                            multiple={false}
+                            onDone={(base64) => setPic(base64.base64)} />
+
                     </div>
                     <div className="input-container form__mobile">
                         <label htmlFor="mobile_input">Mobile</label>
@@ -67,11 +68,11 @@ const RegistrationForm = ({getdata}) => {
                         <select name="jobtype_input" value={jobtype} onChange={e => {
                             setJobtype(e.target.value)
 
-                            }} >
+                        }} >
                             <option>FT</option>
                             <option>PT</option>
                             <option>Consultant</option>
-                            </select>
+                        </select>
                     </div>
                     <div className="input-container form__dob">
                         <label htmlFor="dob_input">DOB</label>
@@ -79,7 +80,7 @@ const RegistrationForm = ({getdata}) => {
                     </div>
                     <div className="input-container form__location">
                         <label htmlFor="location_input">Pref.Location</label>
-                        <select name="location" value={location} onChange={e=>{console.log(e);setLocation(e=>e?.target?.value)}}>
+                        <select name="location" value={location} onChange={e => { setLocation(e?.target?.value) }}>
                             <option>Chennai</option>
                             <option>Bangalore</option>
 
