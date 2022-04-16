@@ -1,9 +1,12 @@
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import axios from "axios";
+import "../Edit/EditModal.css";
 import React from "react";
 import Modal from 'react-modal';
 import { useState } from "react";
 import FileBase64 from 'react-file-base64';
+import { BACK_END_URL } from '../../Constants';
+
 const EditModal = ({ row, getdata }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState("");
@@ -23,7 +26,7 @@ const EditModal = ({ row, getdata }) => {
             Location: row.location
 
         }
-        const editedName = await axios.put(`http://localhost:5000/data/${row._id}`, { ...info });
+        const editedName = await axios.put(`${BACK_END_URL}/data/${row._id}`, { ...info });
         console.log(editedName)
 
         await getdata();
@@ -33,26 +36,26 @@ const EditModal = ({ row, getdata }) => {
     }
     return (
         <>
-            <button onClick={() => { setModalIsOpen(true) }}>Edit </button>
+            <button className='Editbtn' onClick={() => { setModalIsOpen(true) }}>Edit </button>
             <Modal
                 isOpen={modalIsOpen}>
-                <div className="input-container form__full_name">
+                <div className="edit edited_name">
                     <label htmlFor="fullName_input">First name</label>
                     <input required type="text" name="fullName_input" value={editName} onChange={e => setEditName(e.target.value)} /></div>
-                <div className="input-container form__mobile">
+                <div className="edit edited_mobnum">
                     <label htmlFor="mobile_input">Mobile</label>
                     <input required type="text" name="mobile_input" defaultValue="+91" size="1" />
                     <input required type="text" name="mobile_input" value={editNum} onChange={e => setEditNum(e.target.value)} />
                 </div>
-                <div className="input-container form__email">
+                <div className="edit edited_email">
                     <label htmlFor="email_input">Email</label>
                     <input required type="email" name="email_input" value={editEmail} onChange={e => setEditEmail(e.target.value)} />
                 </div>
-                <div className="input-container form__dob">
+                <div className="edit edited_dob">
                     <label htmlFor="dob_input">DOB</label>
                     <input defaultValue={"02/12/1998"} type="date" value={editDob} name="dob_input" onChange={e => setEditDob(e.target.value)} />
                 </div>
-                <div className="input-container form__profilepic">
+                <div className="edit edited_profile">
                         <label htmlFor="profilepic_input">Profile Pic</label>
                         <img src={editPic} width="100"/>
                         <FileBase64

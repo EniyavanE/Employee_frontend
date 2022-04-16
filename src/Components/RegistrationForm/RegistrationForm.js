@@ -4,6 +4,8 @@ import "./RegistrationForm.css";
 import { useState } from "react";
 import axios from "axios";
 import FileBase64 from 'react-file-base64';
+import { BACK_END_URL } from "../../Constants";
+
 const RegistrationForm = ({ getdata }) => {
     const [name, setName] = useState("");
     const [pic, setPic] = useState("");
@@ -24,7 +26,7 @@ const RegistrationForm = ({ getdata }) => {
             Location: location
         };
         console.log(info);
-        await axios.post("http://localhost:5000/data", {
+        await axios.post(`${BACK_END_URL}/data`, {
             ...info
         });
         setName("");
@@ -45,7 +47,7 @@ const RegistrationForm = ({ getdata }) => {
                 <form className="form" onSubmit={submit}>
                     <div className="input-container form__full_name">
                         <label htmlFor="fullName_input">First name</label>
-                        <input required type="text" name="fullName_input" value={name} onChange={e => setName(e.target.value)} />
+                        <input required type="text" placeholder="Enter name" name="fullName_input" value={name} onChange={e => setName(e.target.value)} />
                     </div>
                     <div className="input-container form__profilepic">
                         <label htmlFor="profilepic_input">Profile Pic</label>
@@ -57,11 +59,11 @@ const RegistrationForm = ({ getdata }) => {
                     <div className="input-container form__mobile">
                         <label htmlFor="mobile_input">Mobile</label>
                         <input required type="text" name="mobile_input" defaultValue="+91" size="1" />
-                        <input required type="text" name="mobile_input" value={num} onChange={e => setNum(e.target.value)} />
+                        <input required type="text" placeholder="Enter mobile number" name="mobile_input" value={num} onChange={e => setNum(e.target.value)} />
                     </div>
                     <div className="input-container form__email">
                         <label htmlFor="email_input">Email</label>
-                        <input required type="email" name="email_input" value={email} onChange={e => setEmail(e.target.value)} />
+                        <input required type="email" placeholder="example@mail.com" name="email_input" value={email} onChange={e => setEmail(e.target.value)} />
                     </div>
                     <div className="input-container form__jobtype">
                         <label htmlFor="jobtype_input">Job Type</label>

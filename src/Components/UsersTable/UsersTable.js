@@ -4,6 +4,7 @@ import "./UsersTable.css";
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import DataTable, { createTheme } from 'react-data-table-component';
 import EditModal from "../Edit/EditModal";
+import { BACK_END_URL } from "../../Constants";
 
 createTheme('solarized', {
 
@@ -61,8 +62,8 @@ const UsersTable = ({ data, getdata }) => {
           <>
 
             <EditModal row={row} getdata={getdata} />
-            <button onClick={async () => {
-              const deleteRespondse = await axios.delete(`http://localhost:5000/data/${row._id}`);
+            <button className="Delbtn" onClick={async () => {
+              const deleteRespondse = await axios.delete(`${BACK_END_URL}/data${row._id}`);
               console.log(deleteRespondse);
               await getdata();
               ToastsStore.success("Deleted successfully");
