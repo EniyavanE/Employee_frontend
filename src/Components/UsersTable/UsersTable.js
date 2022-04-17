@@ -24,7 +24,7 @@ const UsersTable = ({ data, getdata }) => {
       name: 'Photo',
       selector: row => {
         return (
-          <img src={row.pic} width="100" />
+          <img src={row.pic} width="100" alt="Profile pic"/>
         );
       },
       sortable: true,

@@ -57,7 +57,7 @@ const EditModal = ({ row, getdata }) => {
                 </div>
                 <div className="edit edited_profile">
                         <label htmlFor="profilepic_input">Profile Pic</label>
-                        <img src={editPic} width="100"/>
+                        <img src={editPic} width="100" alt="Profile pic"/>
                         <FileBase64
                             multiple={false}
                             onDone={(base64) => setEditPic(base64.base64)} />
