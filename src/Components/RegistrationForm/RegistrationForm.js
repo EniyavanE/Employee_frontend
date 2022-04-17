@@ -14,6 +14,7 @@ const RegistrationForm = ({ getdata }) => {
     const [dob, setDob] = useState("");
     const [jobtype, setJobtype] = useState("pt");
     const [location, setLocation] = useState("chennai");
+    
     const submit = async (e) => {
         e.preventDefault();
         const info = {
@@ -26,9 +27,7 @@ const RegistrationForm = ({ getdata }) => {
             Location: location
         };
         console.log(info);
-        await axios.post(`${BACK_END_URL}/data`, {
-            ...info
-        });
+        await axios.post(`${BACK_END_URL}/data`, info);
         setName("");
         setNum("");
         setEmail("");

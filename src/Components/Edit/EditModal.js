@@ -9,12 +9,13 @@ import { BACK_END_URL } from '../../Constants';
 
 const EditModal = ({ row, getdata }) => {
 
-    const [modalIsOpen, setModalIsOpen] = useState("");
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [editName, setEditName] = useState(row.name);
     const [editNum, setEditNum] = useState(row.num);
     const [editEmail, setEditEmail] = useState(row.email);
     const [editDob, setEditDob] = useState(row.dob);
-    const[editPic,setEditPic]=useState(row.pic)
+    const [editPic, setEditPic] = useState(row.pic);
+
     const UpdateChange = async () => {
         const info = {
             Name: editName,
@@ -26,7 +27,7 @@ const EditModal = ({ row, getdata }) => {
             Location: row.location
 
         }
-        const editedName = await axios.put(`${BACK_END_URL}/data/${row._id}`, { ...info });
+        const editedName = await axios.put(`${BACK_END_URL}/data/${row._id}`, info);
         console.log(editedName)
 
         await getdata();
@@ -56,13 +57,12 @@ const EditModal = ({ row, getdata }) => {
                     <input defaultValue={"02/12/1998"} type="date" value={editDob} name="dob_input" onChange={e => setEditDob(e.target.value)} />
                 </div>
                 <div className="edit edited_profile">
-                        <label htmlFor="profilepic_input">Profile Pic</label>
-                        <img src={editPic} width="100" alt="Profile pic"/>
-                        <FileBase64
-                            multiple={false}
-                            onDone={(base64) => setEditPic(base64.base64)} />
-
-                    </div>
+                    <label htmlFor="profilepic_input">Profile Pic</label>
+                    <img src={editPic} width="100" alt="Profile pic" />
+                    <FileBase64
+                        multiple={false}
+                        onDone={(base64) => setEditPic(base64.base64)} />
+                </div>
                 <button onClick={() => setModalIsOpen(false)} >close</button>
                 <button onClick={UpdateChange}>Update</button>
             </Modal>
