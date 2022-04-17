@@ -58,7 +58,7 @@ const RegistrationForm = ({ getdata }) => {
                     </div>
                     <div className="input-container form__mobile">
                         <label htmlFor="mobile_input">Mobile</label>
-                        <input required type="text" name="mobile_input" defaultValue="+91" size="1" />
+                        <input required type="text" name="mobile_input" defaultValue="+91" size="1" id="country_code" />
                         <input required type="text" placeholder="Enter mobile number" name="mobile_input" value={num} onChange={e => setNum(e.target.value)} />
                     </div>
                     <div className="input-container form__email">

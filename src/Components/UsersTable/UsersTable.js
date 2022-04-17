@@ -63,7 +63,7 @@ const UsersTable = ({ data, getdata }) => {
 
             <EditModal row={row} getdata={getdata} />
             <button className="Delbtn" onClick={async () => {
-              const deleteRespondse = await axios.delete(`${BACK_END_URL}/data${row._id}`);
+              const deleteRespondse = await axios.delete(`${BACK_END_URL}/data/${row._id}`);
               console.log(deleteRespondse);
               await getdata();
               ToastsStore.success("Deleted successfully");
