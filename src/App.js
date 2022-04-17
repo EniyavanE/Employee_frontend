@@ -13,8 +13,11 @@ const App = () => {
     setData(fetch.data);
   }
 
-  useEffect(async () => {
+  useEffect( () => {
+    async function fetchData() {
     await getdata();
+    }
+    fetchData()
   }, [])
 
   return (
