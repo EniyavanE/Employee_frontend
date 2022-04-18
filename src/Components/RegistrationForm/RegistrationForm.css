@@ -79,6 +79,9 @@ input[type=submit]:hover {
 }
 
 @media screen and (max-width: 920px) {
+    .top{
+        margin: unset;
+    }
     .form>.input-container {
         width: unset;
     }
