@@ -63,8 +63,8 @@ const EditModal = ({ row, getdata }) => {
                         multiple={false}
                         onDone={(base64) => setEditPic(base64.base64)} />
                 </div>
-                <button onClick={() => setModalIsOpen(false)} >close</button>
-                <button onClick={UpdateChange}>Update</button>
+                <button onClick={() => setModalIsOpen(false)} className="closebtn">close</button>
+                <button onClick={UpdateChange} className="updatebtn">Update</button>
             </Modal>
             <ToastsContainer store={ToastsStore} />
         </>

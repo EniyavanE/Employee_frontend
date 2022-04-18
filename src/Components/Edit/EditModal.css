@@ -5,3 +5,23 @@
 .edit{
     padding: 20px;
 }
+.closebtn{
+    text-align: center;
+    height: 30px;
+    width: 120px;
+    border-radius: 8px;
+    background-color:#02a7fa;
+    border: none;
+    align-self: center;
+    color :white
+}
+.updatebtn{
+    text-align: center;
+    height: 30px;
+    width: 120px;
+    border-radius: 8px;
+    background-color:#02a7fa;
+    border: none;
+    align-self: center;
+    color :white
+}
