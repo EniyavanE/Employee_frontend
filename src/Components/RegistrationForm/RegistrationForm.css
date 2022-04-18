@@ -26,7 +26,15 @@
     margin: 70px;
 
 }
-
+.input-container form__email{
+    margin-left: 20px;
+}
+.input-container form__profilepic{
+    margin-left: 20px;
+}
+.input-container form__dob{
+    margin-left: 20px;
+}
 #country_code {
     width: 25px;
     margin-right: 10px;
