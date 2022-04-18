@@ -1,8 +1,15 @@
-.table-container{
-        margin:70px;
+.table-container {
+        margin: 70px;
 }
-.Delbtn{
+
+.Delbtn {
         border-radius: 8px;
-        text-align:center;
-        padding-left: 4px;
+        text-align: center;
+        padding: 0 6px;
+        text-align: center;
+        background-color: #02a7fa;
+        border: none;
+        align-self: center;
+        color: white;
+        height: 25px;
 }

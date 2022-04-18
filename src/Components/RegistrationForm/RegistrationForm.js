@@ -14,7 +14,7 @@ const RegistrationForm = ({ getdata }) => {
     const [dob, setDob] = useState("");
     const [jobtype, setJobtype] = useState("pt");
     const [location, setLocation] = useState("chennai");
-    
+
     const submit = async (e) => {
         e.preventDefault();
         const info = {

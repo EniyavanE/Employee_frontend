@@ -1,27 +1,37 @@
-.Editbtn{
+.Editbtn {
     border-radius: 10px;
     text-align: center;
+    margin-right: 5px;
+    background-color: #02a7fa;
+    border: none;
+    align-self: center;
+    color: white;
+    padding: 5px 7px;
 }
-.edit{
+
+.edit {
     padding: 20px;
 }
-.closebtn{
+
+.closebtn {
     text-align: center;
     height: 30px;
     width: 120px;
     border-radius: 8px;
-    background-color:#02a7fa;
+    background-color: #02a7fa;
     border: none;
     align-self: center;
-    color :white
+    color: white
 }
-.updatebtn{
+
+.updatebtn {
     text-align: center;
     height: 30px;
     width: 120px;
     border-radius: 8px;
-    background-color:#02a7fa;
+    background-color: #02a7fa;
     border: none;
     align-self: center;
-    color :white
+    color: white;
+    margin-left: 130px;
 }
