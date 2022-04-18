@@ -83,6 +83,7 @@ input[type=submit]:hover {
     .top{
         margin: unset;
         margin-left: 5px;
+        margin-top: 25px;
     
     }
     #input_num{
